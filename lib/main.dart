@@ -20,39 +20,59 @@ class HomePage extends StatelessWidget {
      ),
      body: Center(
        child:Container(
-         color: Color(0xff53E0BC),
-         width: 500,
-         height: 500,
-         child: Row(
-           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-           crossAxisAlignment: CrossAxisAlignment.center,
-           children: [
-              Container(
-           padding: EdgeInsets.all(8.0),
-           color: Colors.red, //you can either give color here or in BoxDecoration
-           width: 100,
-           height: 100,
-           alignment: Alignment.center,  // Alignment.bottomRight
+         decoration: BoxDecoration(
+           gradient: LinearGradient(colors: [
+             Color(0xff53E0BC),
+             Colors.blue[200],
+           ],)
          ),
-          Container(
-           padding: EdgeInsets.all(8.0),
-           color: Colors.yellow, //you can either give color here or in BoxDecoration
-           width: 100,
-           height: 100,
-           alignment: Alignment.center,  // Alignment.bottomRight
-         ),
-          Container(
-           padding: EdgeInsets.all(8.0),
-           color: Colors.green, //you can either give color here or in BoxDecoration
-           width: 100,
-           height: 100,
-           alignment: Alignment.center,  // Alignment.bottomRight
-         ),
-           ],
-
-         ),
+         width: 100,
+         height: 100,
        ),
      ),
+     drawer: Drawer(
+       child: ListView(
+         padding: const EdgeInsets.all(0),
+         children: [
+          /* DrawerHeader(
+             child: Text('I am a Drawer!'),
+             decoration: BoxDecoration(
+               color: Color(0xff53E0BC),
+             ),
+             ),*/
+             UserAccountsDrawerHeader(
+               decoration: BoxDecoration(
+                  color: Color(0xff53E0BC),
+               ),
+               accountName: Text("Yaswanth Kumar"), 
+               accountEmail: Text("test@test.com"),
+               currentAccountPicture: CircleAvatar(
+                 backgroundImage: NetworkImage("https://s3.amazonaws.com/cdn.iconscout.com/icon/premium/png-64/356561.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4VMJAKC54WWWCYMY%2F20200608%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200608T142453Z&X-Amz-SignedHeaders=host&X-Amz-Expires=259200&X-Amz-Signature=c35feb4af3115d40b088c606c74f486b7cb35be1937da4b8679bec30391b1aaf"),
+               )
+               //Image.network("https://s3.amazonaws.com/cdn.iconscout.com/icon/premium/png-64/356561.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4VMJAKC54WWWCYMY%2F20200608%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200608T142453Z&X-Amz-SignedHeaders=host&X-Amz-Expires=259200&X-Amz-Signature=c35feb4af3115d40b088c606c74f486b7cb35be1937da4b8679bec30391b1aaf"),
+               ),
+             ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text("Yaswanth Kumar!"),
+                  subtitle: Text('Developer'),
+                  trailing: Icon(Icons.edit),
+                  onTap: () {},
+             ),
+             ListTile(
+                  leading: Icon(Icons.email),
+                  title: Text("Email"),
+                  subtitle: Text('test@test.com'),
+                  trailing: Icon(Icons.edit),
+             ),
+         ],
+       ),
+     ),
+    floatingActionButton: FloatingActionButton(
+      foregroundColor:  Color(0xff53E0BC),
+      hoverColor: Color(0xff53E0BC),
+      onPressed: () {},
+      child: Icon(Icons.edit),
+      ),
     );
   }
 }
